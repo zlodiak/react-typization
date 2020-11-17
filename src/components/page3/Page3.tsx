@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
-
-import { addMsgAC } from '../../redux/msgReducer';
+import { addMsgThunk } from '../../redux/msgReducer';
 import { msgObjType } from '../../types';
 
-const Page1: React.FC = () => {
+const Page3: React.FC = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [msg, setMsg] = useState('');
-    const dispatch = useDispatch();
 
     function submit(): void {
         if(!name.trim() || !email.trim() || !msg.trim()) {
@@ -20,10 +17,7 @@ const Page1: React.FC = () => {
             msg,
         };
         console.log(msgObj)
-        dispatch(addMsgAC(msgObj));
-        setName('');
-        setEmail('');
-        setMsg('');
+        addMsgThunk(msgObj);
     }
 
     return (
@@ -56,4 +50,4 @@ const Page1: React.FC = () => {
     );
 }
 
-export default Page1;
+export default Page3;
