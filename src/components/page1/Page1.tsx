@@ -21,16 +21,33 @@ const Page1: React.FC = () => {
         };
         console.log(msgObj)
         dispatch(addMsgAC(msgObj));
+        setName('');
+        setEmail('');
+        setMsg('');
     }
 
     return (
         <>
             <div className="form">
-                <input type="text" placeholder="name" onChange={ e => setName(e.target.value) }/>
+                <input 
+                    type="text" 
+                    placeholder="name" 
+                    onChange={ e => setName(e.target.value) } 
+                    value={ name }
+                />
                 <br/>
-                <input type="email" placeholder="email" onChange={ e => setEmail(e.target.value) }/>
+                <input 
+                    type="email" 
+                    placeholder="email" 
+                    onChange={ e => setEmail(e.target.value) } 
+                    value={ email }
+                />
                 <br/>
-                <textarea placeholder="message" onChange={ e => setMsg(e.target.value) }></textarea>
+                <textarea 
+                    placeholder="message" 
+                    onChange={ e => setMsg(e.target.value) } 
+                    value={ msg }>
+                </textarea>
                 <br/>
                 <button onClick={ submit }>submit</button>
             </div>

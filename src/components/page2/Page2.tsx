@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { msgObjType } from '../../types';
 
 function Page2() {
-    const msgs = useSelector((state: any) => state.msgReducer.msgs)
+    const msgs: msgObjType[] = useSelector((state: any) => state.msgReducer.msgs)
 
     return (
         <>

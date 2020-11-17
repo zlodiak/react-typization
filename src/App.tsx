@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
+import { BrowserRouter, Route, NavLink, Switch, Redirect } from "react-router-dom";
 
 import './App.css';
 import Page1 from './components/page1/Page1';
@@ -18,7 +18,8 @@ function App() {
           <Route exact path='/' render={ () => <Page1/> }/>
           <Route exact path='/Page1' render={ () => <Page1/> }/>
           <Route exact path='/Page2' render={ () => <Page2/> }/>
-          <Route exact path='*' render={ () => <Page404/> }/>
+          <Route path='/404' render={ () => <Page404/> }/>
+          <Redirect from='*' to='/404' />
         </Switch>
       </main>
     </BrowserRouter>
