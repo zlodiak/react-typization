@@ -1,5 +1,5 @@
 import { msgObjActionType, msgObjType } from '../types';
-import { addMsg } from '../api';
+import { addMsg, getMsgs } from '../api';
 
 const initialState = { msgs: [] as Array<msgObjType> };
 export type initialStateType = typeof initialState;
@@ -19,6 +19,7 @@ const msgReducer = function msgReducer(state = initialState, action: msgObjActio
     return state;
 }
 
+
 export const addMsgAC = (msgObj: msgObjType): msgObjActionType => {
     return { type: 'ADD_MSG', payload: msgObj }
 }
@@ -32,5 +33,15 @@ export const addMsgThunk = (msgObj: msgObjType, clearFieldsCB: any) => {
         }
     }
 }
+
+export const fillMsgsThunk = () => {
+    return async (dispatch: any) => {
+        const msgs = await getMsgs;
+        for(let msg of msgs) {
+            dispatch(addMsgAC(msg));
+        };
+    }
+}
+
 
 export default msgReducer;

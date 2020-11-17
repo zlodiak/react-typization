@@ -8,3 +8,7 @@ export type msgObjActionType = {
     type: string
     payload: msgObjType
 }
+
+export type stateType = { 
+    msgReducer: msgObjType[]
+}

@@ -10,3 +10,6 @@ export function addMsg(msgObj: msgObjType) {
         body: JSON.stringify(msgObj)
     })    
 }
+
+export const getMsgs = fetch(`${ API_URL }/msgs`)
+    .then(response => response.json());
