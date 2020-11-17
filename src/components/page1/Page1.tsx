@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 
 import { addMsgAC } from '../../redux/msgReducer';

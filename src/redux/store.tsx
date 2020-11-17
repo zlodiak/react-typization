@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import msgReducer from './msgReducer';
 
 const store = createStore(combineReducers({

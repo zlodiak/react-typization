@@ -1,7 +1,7 @@
 import { msgObjActionType, msgObjType } from '../types';
 
 const initialState = { msgs: [] as Array<msgObjType> };
-type initialStateType = typeof initialState;
+export type initialStateType = typeof initialState;
 
 const msgReducer = function msgReducer(state = initialState, action: msgObjActionType): initialStateType {
     switch(action.type) {
