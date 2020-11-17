@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { addMsgThunk } from '../../redux/msgReducer';
 import { msgObjType } from '../../types';
+import { connect } from 'react-redux';
 
-const Page3: React.FC = () => {
+const Page3: React.FC<any> = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [msg, setMsg] = useState('');
@@ -17,7 +18,7 @@ const Page3: React.FC = () => {
             msg,
         };
         console.log(msgObj)
-        addMsgThunk(msgObj);
+        props.addMsgThunk(msgObj, () => { setName(''); setEmail(''); setMsg('') });
     }
 
     return (
@@ -50,4 +51,4 @@ const Page3: React.FC = () => {
     );
 }
 
-export default Page3;
+export default connect(null, { addMsgThunk })(Page3);

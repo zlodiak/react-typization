@@ -23,19 +23,13 @@ export const addMsgAC = (msgObj: msgObjType): msgObjActionType => {
     return { type: 'ADD_MSG', payload: msgObj }
 }
 
-export const addMsgThunk = (msgObj: msgObjType) => {
-    debugger
+export const addMsgThunk = (msgObj: msgObjType, clearFieldsCB: any) => {
     return async (dispatch: any) => {
-        debugger
         const result = await addMsg(msgObj);
-        debugger
-        console.log(result)
-        // users.forEach(user => {
-        //     if(user.login === login && user.password === password) {
-        //         dispatch(setLoggedAC(login, user.id));
-        //         dispatch(setGenderAC(user.gender));
-        //     }
-        // });
+        if(result.ok) {
+            dispatch(addMsgAC(msgObj));
+            clearFieldsCB();
+        }
     }
 }
 
