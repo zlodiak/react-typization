@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
+import { useDispatch } from "react-redux";
 
-function Page1() {
+import { addMsgAC } from '../../redux/msgReducer';
+import { msgObjType } from '../../types';
+
+const Page1: React.FC = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [msg, setMsg] = useState('');
+    const dispatch = useDispatch();
 
-    function submit() {
-        console.log(name, email, msg);
+    function submit(): void {
+        if(!name.trim() || !email.trim() || !msg.trim()) {
+            return;
+        }
+        const msgObj: msgObjType = {
+            name,
+            email,
+            msg,
+        };
+        console.log(msgObj)
+        dispatch(addMsgAC(msgObj));
     }
 
     return (
