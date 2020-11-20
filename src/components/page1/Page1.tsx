@@ -33,7 +33,7 @@ const Page1: React.FC = () => {
                 <input 
                     type="text" 
                     placeholder="name" 
-                    onChange={ e => setName(e.target.value) } 
+                    onChange={ (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value) } 
                     value={ name }
                 />
                 <br/>

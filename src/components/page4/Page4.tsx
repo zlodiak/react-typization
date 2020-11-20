@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { msgObjType } from '../../types';
 import { fillMsgsThunk } from '../../redux/msgReducer';
+import { appStateType } from '../../redux/store';
 
 function Page4(props: any) {
     console.log(props);
@@ -33,7 +34,7 @@ function Page4(props: any) {
     );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: appStateType) => {
     return {
         msgs: state.msgReducer.msgs,
     }
